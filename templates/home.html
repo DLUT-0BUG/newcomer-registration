@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+</head>
+
+<body>
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <h1 class="display-3">RM2022赛季凌BUG新生报名</h1>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" align="right">
+                    <form action="/register" method="POST">
+                        <div class="row py-1">
+                            <label class="col-md-2">姓名：</label>
+                            <input type="text" class="form-control col-md-10" name="name">
+                        </div>
+                        <div class="row py-1">
+                            <label class="col-md-2">性别：</label>
+                            <select class="form-control col-md-10" name="gender">
+                                <option value="male">男</option>
+                                <option value="female">女</option>
+                            </select>
+                        </div>
+                        <div class="row py-1">
+                            <label class="col-md-2">手机号：</label>
+                            <input type="text" class="form-control col-md-10" name="phone">
+                        </div>
+                        <div class="row py-1">
+                            <label class="col-md-2">学院：</label>
+                            <select class="form-control col-md-10" name="faculty">
+                                <option value="ee">电子信息与电气工程学部</option>
+                                <option value="em">经济管理学院</option>
+                                <option value="me">机械工程学院</option>
+                            </select>
+                        </div>
+                        <div class="row py-1">
+                            <label class="col-md-2">班级：</label>
+                            <input type="text" class="form-control col-md-10" name="class_">
+                        </div>
+                        <div class="row py-1">
+                            <label class="col-md-2">第一志愿：</label>
+                            <select class="form-control col-md-10" name="ideal_dept">
+                                <option value="me">机械组</option>
+                                <option value="ee">电控组</option>
+                                <option value="ai">人工智能组</option>
+                                <option value="op">运营组</option>
+                                <option value="it">信息技术组</option>
+                            </select>
+                        </div>
+                        <div class="row py-1">
+                            <!-- TODO: 默认为无 -->
+                            <label class="col-md-2">(可选)第二志愿：</label>
+                            <select class="form-control col-md-10" name="sub_ideal_dept">
+                                <option value="me">机械组</option>
+                                <option value="ee">电控组</option>
+                                <option value="ai">人工智能组</option>
+                                <option value="op">运营组</option>
+                                <option value="it">信息技术组</option>
+                                <option value="null">无</option>
+                            </select>
+                        </div>
+                        <div class="row py-1">
+                            <label class="col-md-2">特长：</label>
+                            <input type="text" class="form-control col-md-10" name="talent">
+                        </div>
+                        <div class="row py-1">
+                            <div class="col-md-5"></div>
+                            <input type="submit" class="btn btn-primary col-md-2" value="submit" />
+                            <div class="col-md-5"></div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+<footer class="footer navbar-fixed-bottom py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p align="center">
+                    Copyright © 2021 DLUT 0BUG Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>
