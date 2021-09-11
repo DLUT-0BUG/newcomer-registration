@@ -10,6 +10,7 @@ from datamodel import StudentInfo
 app = FastAPI()
 template = Jinja2Templates(directory="templates")
 
+
 @app.get("/")
 async def render_home(
     request: Request
@@ -36,6 +37,7 @@ async def parse_form(
 ):
     register_info = StudentInfo(
         name=name,
+        id='1111111',
         gender=gender,
         phone=phone,
         faculty=faculty,
@@ -46,5 +48,5 @@ async def parse_form(
     )
     return {
         "status": 200,
-        "msg": register_info
+        "msg": register_info.to_value()
     }
