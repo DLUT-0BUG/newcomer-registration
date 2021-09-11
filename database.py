@@ -43,7 +43,7 @@ class DatabaseConnect(metaclass=Singleton):
     def add_student_info(self, student: StudentInfo):
         cursor = self.conn.cursor()
         query = f"""
-                    INSERT newcomer_info (name, id, gender, gender_additional, phone, faculty, major, class,
+                    INSERT student_info (name, id, gender, gender_additional, phone, faculty, major, class,
                     ideal_dept_first, ideal_dept_second, talent)
                     VALUES ({student.to_value()});
                 """
