@@ -1,2 +1,3 @@
 fastapi[all]
 uvicorn
+mysql-connector-python
