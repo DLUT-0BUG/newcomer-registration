@@ -31,16 +31,26 @@ template = Jinja2Templates(directory="templates")
 async def render_home(
     request: Request
 ):
-    faculites = DatabaseConnect().get_faculty()
-    return template.TemplateResponse(
-        "home.html",
-        {
-            "request": request,
-            "faculties": faculites,
-            "error": False,
-            "err_msg": ""
-        }
-    )
+    try:
+        departments = DatabaseConnect().get_dept()
+        faculites   = DatabaseConnect().get_faculty()
+    except Exception as e:
+        error = True
+        msg = f"系统出现错误，请联系老师。\n{e}"
+    else:
+        error = False
+        msg = ""
+    finally:
+        return template.TemplateResponse(
+            "home.html",
+            {
+                "request"    : request,
+                "departments": departments,
+                "faculties"  : faculites,
+                "error"      : error,
+                "msg"        : msg
+            }
+        )
 
 
 @app.post("/register")

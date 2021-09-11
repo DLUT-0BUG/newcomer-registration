@@ -25,7 +25,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12" align="center">
-                        {{ err_msg }}
+                        <b>{{ msg }}</b>
                     </div>
                 </div>
             </div>
@@ -70,22 +70,18 @@
                         <div class="row py-1">
                             <label class="col-md-2">第一志愿：</label>
                             <select class="form-control col-md-10" name="ideal_dept">
-                                <option value="me">机械组</option>
-                                <option value="ee">电控组</option>
-                                <option value="ai">人工智能组</option>
-                                <option value="op">运营组</option>
-                                <option value="it">信息技术组</option>
+                                {% for dept in departments %}
+                                    <option value="{{ dept }}">{{ dept }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="row py-1">
                             <!-- TODO: 默认为无 -->
                             <label class="col-md-2">(可选)第二志愿：</label>
                             <select class="form-control col-md-10" name="sub_ideal_dept">
-                                <option value="me">机械组</option>
-                                <option value="ee">电控组</option>
-                                <option value="ai">人工智能组</option>
-                                <option value="op">运营组</option>
-                                <option value="it">信息技术组</option>
+                                {% for dept in departments %}
+                                    <option value="{{ dept }}">{{ dept }}</option>
+                                {% endfor %}
                                 <option value="null">无</option>
                             </select>
                         </div>
