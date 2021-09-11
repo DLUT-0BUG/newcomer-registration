@@ -1,3 +1,4 @@
+import os
 from typing import Optional
 
 from fastapi import FastAPI, Form
@@ -6,9 +7,22 @@ from starlette.requests import Request
 from starlette.templating import Jinja2Templates
 
 from datamodel import StudentInfo
+from database import DatabaseConnect
+db_host = os.getenv('DB_HOST')
+db_port = os.getenv('DB_PORT')
+db_name = os.getenv('DB_NAME')
+db_user = os.getenv('DB_USER')
+db_passwd = os.getenv('DB_PASSWORD')
+DatabaseConnect(
+    host=db_host,
+    port=db_port,
+    db=db_name,
+    user=db_user,
+    passwd=db_passwd)
 
 app = FastAPI()
 template = Jinja2Templates(directory="templates")
+
 
 
 @app.get("/")
