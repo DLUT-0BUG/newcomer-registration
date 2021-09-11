@@ -6,19 +6,30 @@ from starlette.requests import Request
 from starlette.templating import Jinja2Templates
 
 from datamodel import StudentInfo
+from database import DatabaseConnect
 
 app = FastAPI()
 template = Jinja2Templates(directory="templates")
+db = DatabaseConnect(
+    host=,
+    db=,
+    user=,
+    passwd=,
+)
 
 
 @app.get("/")
 async def render_home(
     request: Request
 ):
+    faculites = db.get_faculty()
     return template.TemplateResponse(
         "home.html",
         {
-            "request": request 
+            "request": request,
+            "faculties": faculites,
+            "error": False,
+            "err_msg": ""
         }
     )
 
@@ -27,6 +38,7 @@ async def render_home(
 async def parse_form(
     request       : Request,
     name          : str = Form(...),
+    id            : str = Form(...),
     gender        : str = Form(...),
     phone         : str = Form(...),
     faculty       : str = Form(...),
@@ -37,7 +49,7 @@ async def parse_form(
 ):
     register_info = StudentInfo(
         name=name,
-        id='1111111',
+        id=id,
         gender=gender,
         phone=phone,
         faculty=faculty,
@@ -46,6 +58,7 @@ async def parse_form(
         sub_ideal_dept=sub_ideal_dept,
         talent=talent
     )
+    db.add_student_info(register_info)
     return {
         "status": 200,
         "msg": register_info.to_value()
