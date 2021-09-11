@@ -20,6 +20,17 @@
             </div>
         </div>
     </div>
+    {% if error %}
+        <div class="py-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" align="center">
+                        {{ err_msg }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
     <div class="py-1">
         <div class="container">
             <div class="row">
@@ -28,6 +39,10 @@
                         <div class="row py-1">
                             <label class="col-md-2">姓名：</label>
                             <input type="text" class="form-control col-md-10" name="name">
+                        </div>
+                        <div class="row py-1">
+                            <label class="col-md-2">学号：</label>
+                            <input type="text" class="form-control col-md-10" name="id">
                         </div>
                         <div class="row py-1">
                             <label class="col-md-2">性别：</label>
@@ -43,9 +58,9 @@
                         <div class="row py-1">
                             <label class="col-md-2">学院：</label>
                             <select class="form-control col-md-10" name="faculty">
-                                <option value="ee">电子信息与电气工程学部</option>
-                                <option value="em">经济管理学院</option>
-                                <option value="me">机械工程学院</option>
+                                {% for faculty in faculties %}
+                                    <option value="{{ faculty }}">{{ faculty }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="row py-1">
