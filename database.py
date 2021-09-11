@@ -25,6 +25,21 @@ class DatabaseConnect(metaclass=Singleton):
     def close(self):
         self.conn.close()
 
+    def get_dept(self):
+        cursor = self.conn.cursor()
+        query = """
+                    SELECT dept_name 
+                    FROM dept_list 
+                    WHERE id<7
+                """
+        cursor.execute(query)
+        values = cursor.fetchall()
+        departments = []
+        for i in values:
+            departments.append(i[0])
+        cursor.close()
+        return departments
+
     def get_faculty(self):
         cursor = self.conn.cursor()
         query = """
