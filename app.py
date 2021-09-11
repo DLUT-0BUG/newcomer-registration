@@ -33,8 +33,10 @@ async def render_home(
 ):
     try:
         departments = DatabaseConnect().get_dept()
-        faculites   = DatabaseConnect().get_faculty()
+        faculties   = DatabaseConnect().get_faculty()
     except Exception as e:
+        departments = []
+        faculties = []
         error = True
         msg = f"系统出现错误，请联系老师。\n{e}"
     else:
@@ -46,7 +48,7 @@ async def render_home(
             {
                 "request"    : request,
                 "departments": departments,
-                "faculties"  : faculites,
+                "faculties"  : faculties,
                 "error"      : error,
                 "msg"        : msg
             }
