@@ -30,7 +30,7 @@ class DatabaseConnect(metaclass=Singleton):
         query = """
                     SELECT dept_name 
                     FROM dept_list 
-                    WHERE id<7
+                    WHERE id!=7
                 """
         cursor.execute(query)
         values = cursor.fetchall()
@@ -45,7 +45,6 @@ class DatabaseConnect(metaclass=Singleton):
         query = """
             SELECT chinese_name 
             FROM faculty_list 
-            WHERE id<100
         """
         cursor.execute(query)
         values = cursor.fetchall()
